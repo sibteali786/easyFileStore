@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"lambda-func/app"
 
 	"github.com/aws/aws-lambda-go/lambda"
 )
@@ -21,5 +22,6 @@ func HandleRequest(event MyEvent) (string, error) {
 }
 
 func main() {
+	_ = app.NewApp()
 	lambda.Start(HandleRequest)
 }
