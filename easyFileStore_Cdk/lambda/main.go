@@ -23,5 +23,5 @@ func HandleRequest(event MyEvent) (string, error) {
 
 func main() {
 	myApp := app.NewApp()
-	lambda.Start(myApp)
+	lambda.Start(myApp.ApiHandler.RegisterApiHandler)
 }
