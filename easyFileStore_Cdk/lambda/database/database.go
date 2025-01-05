@@ -15,6 +15,10 @@ const (
 type DynamoDBClient struct {
 	databaseStore *dynamodb.DynamoDB
 }
+type UserStore interface {
+	DoesUserExists(username string) (bool, error)
+	InsertUser(user types.RegisterUser) error
+}
 
 func NewDynamoDBClient() DynamoDBClient {
 	dbSession := session.Must(session.NewSession())
