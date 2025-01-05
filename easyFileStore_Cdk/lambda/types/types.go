@@ -23,7 +23,7 @@ func NewUser(registerUser RegisterUser) (User, error) {
 	}, nil
 }
 
-func ValidatePassword(hasedPassword, plainTextPassword string) bool {
+func ValidatePassword(hashedPassword, plainTextPassword string) bool {
 	err := bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(plainTextPassword))
 	return err == nil
 }
